@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>Sign up</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #34495e;
+}
+
+.form {
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #2c3e50;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 5px 10px 8px #222f3e;
+    color: #ecf0f1;
+}
+  
+  .form  a{
+    color: #ecf0f1;
+  }
+
+.form h1 {
+    color: #ecf0f1;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.form  input[type = "text"],.form input[type = "password"] {
+    border: 0;
+    background: none;
+     display: block;
+     margin: 20px auto;
+     text-align: center;
+     border: 2px solid #3498db;
+     padding: 14px 10px;
+     width: 200px;
+     outline: none;
+     color: #ecf0f1;
+     border-radius: 24px;
+     transition: 0.25s;
+}
+
+.form  input[type = "text"]:focus,.form input[type = "password"]:focus {
+    width: 280px;
+    border-color: #2ecc71;
+}
+
+.form  input[type = "submit"] {
+    border: 0;
+    background: none;
+     display: block;
+     margin: 20px auto;
+     text-align: center;
+     border: 2px solid #2ecc71;
+     padding: 14px 40px;
+     outline: none;
+     color: #ecf0f1;
+     border-radius: 24px;
+     transition: 0.25s;
+     cursor: pointer;
+}
+
+.form  input[type = "submit"]:hover{
+    background: #2ecc71;
+}
+</style>
+</head>
+<body>
+<div class="form">
+    <h1>Sign up</h1>
+    <input type="text" onInput="edit()" id="email" placeholder="Email" autocomplete="off">
+    <input type="text" onInput="edit()" id="username" placeholder="Username" autocomplete="off">
+    <input type="password" onInput="edit()" id="password" placeholder="Password" autocomplete="off">
+    <input type="password" onInput="edit()" id="confirmPass" placeholder="Re-enter password" autocomplete="off">
+    <p id="failed"><font color="#e74c3c">This feild is required*<br></font></p>
+    <p id="empty"><font color="#e74c3c">Please re-enter your password*<br></font></p>
+    <p id="check"><font color="#e74c3c">Password do not match*<br></font></p>
+    <input type="submit" onClick="submit()">
+  <p>Already have an account? <a href="#">Login</a></p>
+  </div>
+  <script>
+   
+        
+        document.getElementById("failed").style.display = "none";
+        document.getElementById("check").style.display = "none";
+        document.getElementById("empty").style.display = "none";
+
+    function submit() {
+        
+            if(document.getElementById("email").value === '') {
+                    document.getElementById("email").style.border = "2px solid #e74c3c";
+                    document.getElementById("failed").style.display = "unset";
+                }
+            if(document.getElementById("username").value === '') {
+                    document.getElementById("username").style.border = "2px solid #e74c3c";
+                    document.getElementById("failed").style.display = "unset";
+                }
+            if(document.getElementById("password").value === '') {
+                    document.getElementById("password").style.border = "2px solid #e74c3c";
+                    document.getElementById("failed").style.display = "unset";
+                }
+            if(document.getElementById("confirmPass").value === '') {
+                document.getElementById("confirmPass").style.border = "2px solid #e74c3c";
+                document.getElementById("empty").style.display = "unset";
+            }
+            if(document.getElementById("confirmPass").value !== document.getElementById("password").value) {
+                document.getElementById("confirmPass").style.border = "2px solid #e74c3c";
+                document.getElementById("check").style.display = "unset";
+            }
+        }
+        
+        function edit() {
+        document.getElementById("failed").style.display = "none";
+        document.getElementById("check").style.display = "none";
+        document.getElementById("empty").style.display = "none";
+        document.getElementById("username").style.border = "2px solid #3498db";
+        document.getElementById("password").style.border = "2px solid #3498db";
+        document.getElementById("email").style.border = "2px solid #3498db";
+        document.getElementById("confirmPass").style.border = "2px solid #3498db";
+        }
+  </script>
+</body>
+</html>

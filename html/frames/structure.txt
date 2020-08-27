@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><!-- Text that should display on the browser tab --></title>
+    <!-- linking things and other goes in head (Some in body) -->
+</head>
+<body>
+    <!-- Main content goes in body -->
+</body>
+</html>
